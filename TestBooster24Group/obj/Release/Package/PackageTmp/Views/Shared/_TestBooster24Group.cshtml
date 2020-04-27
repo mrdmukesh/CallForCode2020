@@ -1,0 +1,83 @@
+﻿@model TestBooster24GroupApp.Core.Models.TestBoosetr24Group
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>TestBoosetr24Group</h3>
+    </div>
+    <ul class="nav navbar-right panel_toolbox">
+        <li>
+            <a href="@Url.Action("Edit","TestBoosetr24Group", new{id =Model.Id})" class="btn-link"><i class="fa fa-edit m-right-xs"></i>Edit</a>
+            <a href="@Url.Action("SendNotification","TestBoosetr24Group", new{id =Model.Id})" class="btn-link"><i class="fa fa-edit m-right-xs"></i>Send Notification</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table id="testboosetr24groups" class="data table table-striped no-margin">
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Group Name</th>
+                            <th>Group Owner</th>
+                            <th>Creation Date</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Doctor</th>
+                            <th>Status</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <td>@Model.Token</td>
+                        <td>@Model.Name</td>
+                        <td>@Model.GroupOwnerId</td>
+                        <td>@Model.CreationDate.ToString("MMM")-@Model.CreationDate.ToString("d ")-@Model.CreationDate.ToString("yyyy")</td>
+                        <td>@Model.Address</td>
+                        <td>@Model.CityId</td>
+                        <td>@Model.Doctor</td>
+
+                        <td>
+                            @{
+
+                                if (Model.TestStatus == 0)
+                                {
+                                    <a href="#" style="padding: 3px 10px 3px 10px; background-color:green " class="badge" readonly>NotKnown</a>
+                                }
+                                else if (Model.TestStatus == 1)
+                                {
+                                    <a href="#" style="padding: 3px 10px 3px 10px; background-color:green " class="badge" readonly>Positive</a>
+                                }
+                                else if (Model.TestStatus == 2)
+                                {
+                                    <a href="#" style="padding: 3px 10px 3px 10px; background-color:greenyellow" class="badge" readonly>Negative</a>
+                                }
+                            }
+                        </td>
+                       
+                    </tr>
+                    
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@*@section scripts{
+        <script>
+            $(document).ready(function () {
+                $("#testboosetr24groups").DataTable();
+            });
+        </script>
+    }*@

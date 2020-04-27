@@ -1,0 +1,33 @@
+﻿@model TestBooster24GroupApp.Core.Models.TestBoosetr24Group
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row top_tiles">
+    
+            <h3>
+                Group @Model.Name is notified with status
+
+                @{
+
+                    if (Model.TestStatus == 0)
+                    {
+                        <a href="#" style="padding: 3px 10px 3px 10px; background-color:green " class="badge" readonly>NotKnown</a>
+                    }
+                    else if (Model.TestStatus == 1)
+                    {
+                        <a href="#" style="padding: 3px 10px 3px 10px; background-color:green " class="badge" readonly>Positive</a>
+                    }
+                    else if (Model.TestStatus == 2)
+                    {
+                        <a href="#" style="padding: 3px 10px 3px 10px; background-color:greenyellow" class="badge" readonly>Negative</a>
+                    }
+                }
+
+                Email and SMS notification is Sent to all Group members 
+            </h3>
+        
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
