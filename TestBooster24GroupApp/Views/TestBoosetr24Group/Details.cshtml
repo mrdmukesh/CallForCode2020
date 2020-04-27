@@ -1,0 +1,65 @@
+﻿
+@model TestBooster24GroupApp.Core.ViewModel.TestBoosetr24GroupViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<!-- load partial here-->
+<div id="MyModal" class="modal fade in">
+    <div class="modal-dialog " style="width: 900px;">
+        <div class="modal-content">
+            <div id="MyModalContent"></div>
+        </div>
+    </div>
+</div>
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Details</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+           
+            <div class="x_content">
+                <div class="col-md-3 col-sm-3 col-xs-12 profile_left ">
+                    <div class="profile_img">
+                        <div id="crop-avatar">
+                            <!-- Current avatar -->
+                            <img class="img-responsive avatar-view" src="~/Content/images/user.png">
+                        </div>
+                    </div>
+                    <h3>@Model.Name</h3>
+                    <ul class="list-unstyled user_data">
+                        <li> <i class="fa fa-user"><strong>Token:</strong> @Model.GroupOwnerId</i></li>
+                        <li> <i class="fa fa-user"><strong>Sex:</strong> @Model.TestStatus</i></li>
+                        <li> <i class="fa fa-user"><strong>Weight:</strong> @Model.CreationDate</i></li>
+                        <li>
+                            <i class="fa fa-map-marker user-profile-icon"></i><strong>Address:</strong> @Model.Address, @Model.Cities
+                        </li>
+
+                        <li class="m-top-xs">
+                            <i class="fa fa-clock-o"></i><strong>Date :</strong> @Model.CreationDate.ToString("MMM"), @Model.CreationDate.ToString("d ")- @Model.CreationDate.ToString("yyyy")-@Model.CreationDate.ToString("HH:mm")
+                        </li>
+                    </ul>
+                    <a href="@Url.Action("Edit", "TestBoosetr24Group", new { id= Model.GroupOwnerId})" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit</a>
+                    <a href="@Url.Action("SendNotification", "TestBoosetr24Group", new { id= Model.GroupOwnerId})" class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Send Notification</a>
+                    <br />
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $('.dataTables').DataTable({
+            "scrollY": "300px",
+            "scrollCollapse": true,
+            "paging": false,
+            "filter": false,
+            "info": false
+        });</script>
+
+}
+
+
